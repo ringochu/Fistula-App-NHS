@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button (click)="logout()">
+        Logout
+      </button>
+    </ion-buttons>
+    <ion-title>Diary Log</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="diary-content" padding>
+  
+<!--<ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="searchDate" (input)="filterdate($event)"></ion-datetime>-->
+ 
+
+<ion-searchbar id="YYYY-MM-DD"[(ngModel)]="date" (ionInput)="filter($event)">YYYY-MM-DD</ion-searchbar>
+
+
+  <!--<ion-label>Select Date</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="searchDate" (ionInput)="filter($event)"></ion-datetime>-->
+
+<!--<ion-searchbar [(ngModel)]="date" (ionInput)="filter($event)" ></ion-searchbar> -->
+
+<ion-card *ngFor="let card of posts | async">
+
+<ion-card-content>
+      
+     
+
+      <!--<ion-card-title>
+        {{card.myDate1}}<small>   {{card.myDate2}}</small>
+      </ion-card-title>-->
+
+      <div class="col-md-12">
+
+  <div class="col-md-5">
+		<hr>
+		<h4><a><strong>Date:</strong></a></h4>
+		<div>{{card.myDate1}}</div>
+		</div>
+		
+		<div class="col-md-4">
+		<hr>
+		<h4><a><strong>Time:</strong></a></h4>
+		<div>{{card.myDate2}}</div>
+		</div>
+    </div>
+      
+  <table class="houseofcard">
+  <tr>
+    <th>Questions</th>
+    <th>Answers</th>
+  </tr>
+  
+  
+  <tr>
+    <td> Is the skin over your Fistula red and sore?</td>
+    <td>{{card.yesno1}}</td>
+  </tr>
+  
+  <tr>
+    <td>Can you hear a Bruit (Buzz) when you touch the Fistula?</td>
+    <td>{{card.yesno2}}</td>
+  </tr>
+
+  <tr>
+    <td>Do you have any of the following symptoms?</td>
+    <td>{{tingling}}, {{coldness}}, {{numbness}}, {{pain}}, {{other}}</td>
+  </tr>
+  
+  <tr>
+    <td> Other symptoms?</td>
+    <td>{{card.yesno3}}</td>
+  </tr>
+  
+  <tr>
+    <td> Is there a large area of swelling in one part of the Fistula?</td>
+    <td>{{card.yesno4}}</td>
+  </tr>
+  
+  <tr>
+    <td>Where is the Fistula located in the arm? </td>
+    <td>{{card.yesno6}}</td>
+  </tr>
+  
+  <tr>
+    <td> Can you hear the Fistula with a sthethoscope?</td>
+    <td>{{card.yesno7}}</td>
+  </tr>
+  
+  <tr>
+    <td> Is the Fistula painful? </td>
+    <td>{{card.yesno8}}</td>
+  </tr>
+  
+  <tr>
+    <td> Further comments on pain (if any)?</td>
+    <td>{{card.yesno9}}</td>
+  </tr>
+  
+  <tr>
+    <td>Any needling problems at the last dialysis session? </td>
+    <td>{{card.yesno10}}</td>
+  </tr>
+  
+  <tr>
+    <td>Bleeding time during the last dialysis session?</td>
+    <td>{{card.yesno11}}</td>
+  </tr>
+  
+  <tr>
+    <td> Comments:</td>
+    <td>{{card.yesno5}}</td>
+  </tr>
+  
+  <tr>
+    <td> Additional comments or concerns:</td>
+    <td>{{card.comment}}</td>
+  </tr>
+  
+  <tr>
+    <td> Location:</td>
+    <td>{{card.location}}</td>
+  </tr>
+
+</table>
+
+    </ion-card-content>
+ </ion-card>
+
+
+
+</ion-content>

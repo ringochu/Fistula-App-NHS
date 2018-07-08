@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  padding id="login">
+    <!--Username and password -->
+    <ion-list>
+        
+        <form [formGroup]="loginForm" class="login-box">
+ <div class="login-form">
+        <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            <ion-input formControlName="email" type="text" name="email" placeholder="Email" [(ngModel)]="email" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)" ></ion-input>
+        </ion-item>
+  
+  <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+        
+        <ion-item>
+            <ion-icon name="lock" item-left></ion-icon>
+            <ion-input formControlName="pass" type="password" name="password" placeholder="Password" [(ngModel)]="password" [class.invalid]="!loginForm.controls.pass.valid && (loginForm.controls.pass.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+ 
+ 
+ <ion-item *ngIf="!loginForm.controls.pass.valid  && (loginForm.controls.pass.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   </div>
+   
+  <button ion-button outline color="white"  class="login-button" (click)="loginfire()">Login</button>
+        </form>
+    </ion-list>
+
+       
+
+       <!-- <button secondary (click)="addLocalStorage()">Done</button> -->
+
+  <p>
+      Don't have an account? <a (click)="here();"> <u>Sign up</u></a>
+      </p>
+      
+</ion-content>

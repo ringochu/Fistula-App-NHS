@@ -1,0 +1,236 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button (click)="logout()">
+        Logout
+      </button>
+    </ion-buttons>
+    <ion-title>Record Observations</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="record-content" padding>
+  <ion-list no-lines>
+
+    <form [formGroup]="recordsForm">
+
+     <ion-item>
+  <ion-label floating>Date*</ion-label>
+  <ion-datetime formControlName="date" displayFormat="MMM DD, YYYY" [(ngModel)]="post.myDate1" [class.invalid]="!recordsForm.controls.date.valid && (recordsForm.controls.date.dirty || submitAttempt)" ></ion-datetime>
+</ion-item>
+
+    <ion-item *ngIf="!recordsForm.controls.date.valid  && (recordsForm.controls.date.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+   
+   <ion-item>
+  <ion-label floating>Time*</ion-label>
+  <ion-datetime formControlName="time" displayFormat="HH:mm" [(ngModel)]="post.myDate2" [class.invalid]="!recordsForm.controls.time.valid && (recordsForm.controls.time.dirty || submitAttempt)"></ion-datetime>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.time.valid  && (recordsForm.controls.time.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+    
+   <p>Is the skin over your Fistula red and sore?* </p>
+<ion-item>
+      <ion-label floating></ion-label>
+  <ion-select formControlName="skin" [(ngModel)]="post.yesno1" [class.invalid]="!recordsForm.controls.skin.valid && (recordsForm.controls.skin.dirty || submitAttempt)">
+    <ion-option value="Yes" selected="true">Yes</ion-option>
+    <ion-option value="No">No</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.skin.valid  && (recordsForm.controls.skin.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+
+
+   
+   
+   <p>Can you hear a Bruit (Buzz) when you touch the Fistula?*</p>
+ <ion-item>
+      <ion-label floating></ion-label>
+  <ion-select formControlName="buzz" [(ngModel)]="post.yesno2" [class.invalid]="!recordsForm.controls.buzz.valid && (recordsForm.controls.buzz.dirty || submitAttempt)">
+    <ion-option value="Yes" selected="true">Yes</ion-option>
+    <ion-option value="No">No</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.buzz.valid  && (recordsForm.controls.buzz.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+   
+   
+   
+   <p>Do you have any of the following symptoms?* (If you have none, write N/A in other) </p>
+<!-- add [(ngModel)] -->
+<!-- <ion-list>
+
+ <ion-item>
+    <ion-label>Tingling</ion-label>
+    <ion-checkbox color="red" checked="true" formControlName="tingling" [(ngModel)]="Tingling"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Coldness</ion-label>
+    <ion-checkbox color="yellow" formControlName="coldness" [(ngModel)]="Coldness"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Numbness</ion-label>
+    <ion-checkbox color="green" formControlName="numbness" [(ngModel)]="Numbness"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Pain</ion-label>
+    <ion-checkbox color="royal" formControlName="hurting" [(ngModel)]="Pain"></ion-checkbox>
+  </ion-item>   - - - - - - - - - - - - - - - - - - - - -     -->
+<div class="form-group">
+<ion-list>
+  <ion-item>
+    <ion-label>Tingling</ion-label>
+    <ion-checkbox formControlName="tingling" [(ngModel)]="post.yesno3Tingling" ng-true-value="Tingling" ng-false-value=" "></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Coldness</ion-label>
+    <ion-checkbox formControlName="coldness" [(ngModel)]="post.yesno3Coldness" ></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Numbness</ion-label>
+    <ion-checkbox formControlName="numbness" [(ngModel)]="post.yesno3Numbness"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Pain</ion-label>
+    <ion-checkbox  formControlName="hurting" [(ngModel)]="post.yesno3Pain"></ion-checkbox>
+  </ion-item>
+</ion-list> 
+</div>
+
+ <ion-item>
+      <ion-label floating>Other symptoms (else write N/A)</ion-label>
+      <ion-input formControlName="symptons" type="text" [(ngModel)] = "post.yesno3" [class.invalid]="!recordsForm.controls.symptons.valid && (recordsForm.controls.symptons.dirty || submitAttempt)"></ion-input>
+    </ion-item> 
+ 
+ <ion-item *ngIf="!recordsForm.controls.symptons.valid  && (recordsForm.controls.symptons.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+   
+   
+    <p>Is there a large area of swelling in one part of the Fistula?*</p>
+   <ion-item>
+      <ion-label floating></ion-label>
+  <ion-select formControlName="swelling" [(ngModel)]="post.yesno4" [class.invalid]="!recordsForm.controls.swelling.valid && (recordsForm.controls.swelling.dirty || submitAttempt)">
+    <ion-option value="Yes" selected="true">Yes</ion-option>
+    <ion-option value="No">No</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.swelling.valid  && (recordsForm.controls.swelling.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+          </ion-item>
+
+<p>Where is the Fistula located?*</p>
+   <ion-item>
+     <ion-label></ion-label>
+  <ion-select formControlName="located" [(ngModel)]="post.yesno6" [class.invalid]="!recordsForm.controls.located.valid && (recordsForm.controls.located.dirty || submitAttempt)">
+    <ion-option value="Right and Upper" selected="true">Right and upper arm</ion-option>
+    <ion-option value="Right and Lower">Right and lower arm</ion-option>
+    <ion-option value="Left and Upper">Left and upper arm</ion-option>
+    <ion-option value="Left and Lower">Left and lower arm</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.located.valid  && (recordsForm.controls.located.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+
+<p>Can you hear the Fistula with a sthethoscope?* </p>
+   <ion-item><ion-label></ion-label>
+  <ion-select formControlName="hear" [(ngModel)]="post.yesno7" [class.invalid]="!recordsForm.controls.hear.valid && (recordsForm.controls.hear.dirty || submitAttempt)">
+    <ion-option value="Yes" selected="true">Yes</ion-option>
+    <ion-option value="No">No</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.hear.valid  && (recordsForm.controls.hear.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+
+<p>Is the Fistula painful?*</p>
+   <ion-item><ion-label></ion-label>
+  <ion-select formControlName="painful" [(ngModel)]="post.yesno8" [class.invalid]="!recordsForm.controls.painful.valid && (recordsForm.controls.painful.dirty || submitAttempt)">
+    <ion-option value="Yes" selected="true">Yes</ion-option>
+    <ion-option value="No">No</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.painful.valid  && (recordsForm.controls.painful.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+   <p>If you have answered yes to the above question, please explain what kind of pain it is? </p>
+   <ion-item>
+      <ion-label ></ion-label>
+      <ion-textarea formControlName="pain" rows="3" [(ngModel)] = "post.yesno9" ></ion-textarea>
+    </ion-item>
+
+
+    <p> Have you had any needling problems at the last dialysis session?*</p>
+   <ion-item><ion-label></ion-label>
+  <ion-select formControlName="dialysis" [(ngModel)]="post.yesno10" [class.invalid]="!recordsForm.controls.dialysis.valid && (recordsForm.controls.dialysis.dirty || submitAttempt)">
+    <ion-option value="Yes" selected="true">Yes</ion-option>
+    <ion-option value="No">No</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item *ngIf="!recordsForm.controls.dialysis.valid  && (recordsForm.controls.dialysis.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+   <p>How long did it bleed from the needling site during the last dialysis session?*</p>
+   <ion-item><ion-label></ion-label>
+  <ion-select formControlName="bleed" [(ngModel)]="post.yesno11" [class.invalid]="!recordsForm.controls.bleed.valid && (recordsForm.controls.bleed.dirty || submitAttempt)">
+    <ion-option value="Under 20 mins" selected="true">Less than 20 mins</ion-option>
+    <ion-option value="Over 20 mins">Over 20 mins</ion-option>
+    <ion-option value="I had no bleeding">I had no bleeding</ion-option>
+  </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="!recordsForm.controls.bleed.valid  && (recordsForm.controls.bleed.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+
+ <p>Additional comments or concerns (has anything changed)?</p>
+   <ion-item>
+      <ion-label floating>Put your comment here</ion-label>
+      <ion-input formControlName="comments" type="text" rows="6"[(ngModel)] = "post.yesno5" ></ion-input>
+    </ion-item>
+ 
+ 
+  <ion-item>
+      <ion-label floating>Location*</ion-label>
+      <ion-input formControlName="locations" type="text" [(ngModel)]="post.location" [class.invalid]="!recordsForm.controls.locations.valid && (recordsForm.controls.locations.dirty || submitAttempt)"></ion-input>
+    </ion-item>
+ 
+ <ion-item *ngIf="!recordsForm.controls.locations.valid  && (recordsForm.controls.locations.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Required Field</p>
+            </ion-item>
+   
+ 
+        </form>
+  </ion-list>
+
+    <button ion-button full (click) = "submit()">submit</button>
+
+</ion-content>

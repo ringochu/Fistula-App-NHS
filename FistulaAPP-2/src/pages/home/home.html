@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color = "primary" hideBackButton>
+    <ion-title>
+      FISTULA
+    </ion-title>
+	
+  </ion-navbar>
+   
+</ion-header>
+
+
+
+
+<ion-content class="home-content" padding>
+<ion-item><img src="assets/image/NHSLogo.png" class="logo" width="auto" height="60px" ></ion-item>
+	<ion-item>
+	<ion-label> <img src="assets/image/instructions.png" (click)="imageInstructions();" width="60px" height="60px"> <ion-label (click)="imageInstructions();"><b>&nbsp;&nbsp;&nbsp;Image <br>Instructions </b></ion-label> </ion-label>
+	<ion-label><img src="assets/image/diary.png" (click)="diary();" width="60px" height="60px"> <ion-label (click)="diary();"><b>&nbsp;&nbsp;Diary Log </b></ion-label></ion-label>
+	</ion-item>
+	
+	<ion-item> 
+	<ion-label><img src="assets/image/record.png" (click)="record()" width="60px" height="60px"><ion-label (click)="record()"><b>&nbsp;&nbsp; &nbsp;&nbsp;Record <br>Observations </b></ion-label></ion-label>
+	<ion-label><img src="assets/image/camera.png" (click)="capture();" width="60px" height="60px"><ion-label (click)="capture();"><b>Capture <br> &nbsp;&nbsp;Image </b></ion-label> </ion-label>
+	</ion-item>
+	
+	<ion-item> 
+		<!--  upload using cordova path -->
+	<ion-label><img src="assets/image/upload.png" (click)="store()" width="60px" height="60px"><ion-label (click)="store()"><b>&nbsp; &nbsp;Upload <br>&nbsp; &nbsp;Image</b> </ion-label></ion-label>
+	<ion-label><img src="assets/image/Logout.png" (click)="logout()" width="60px" height="60px"><ion-label (click)="logout()"><b>&nbsp;&nbsp; &nbsp;Logout</b> </ion-label></ion-label> 
+  </ion-item>
+	 
+	<ion-item>
+	
+	<button ion-button  full (click)="exit()">Exit</button>
+	</ion-item>	
+	
+	
+</ion-content>
+
+
+<ion-footer>
+App created by Bharghavi Damodharan and Team :)
+	
+</ion-footer>
+
+
+
+
+
